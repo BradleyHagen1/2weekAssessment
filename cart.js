@@ -34,9 +34,9 @@ const cart = [
 ]
 
 //CODE HERE
+let summedPrice = cart.reduce((acc,cur) => acc + cur.price, 0)
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
+console.log (summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,6 +54,11 @@ const cart = [
 */
 
 //CODE HERE
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    return (cartTotal - couponValue) * (1-tax)
+}
+
+console.log (calcFinalPrice(summedPrice, 3.00, 0.06))
 
 
 
@@ -77,10 +82,17 @@ const cart = [
     Your object should have at least 4 properties. 
 */
 
-/*
-    TEXT ANSWER HERE
 
-*/
+    class Customer {
+        constructor (name, price, type, addons){
+        this.name = name; /*to show customer service*/
+        this.price = price;/*show cusotmer price of item*/
+        this.type = type;/*show what kind of item it is*/
+        this.addons = addons/*show optional addons*/
+        }
+    }
+
+
 
 /*
     Now, create a customer object following your own
@@ -88,3 +100,7 @@ const cart = [
 */
 
 //CODE HERE
+const sandwich = ['bread', 'ham', 'cheese', 'mayo']
+
+let pizza = new Customer ("sandiwch", 12, 'ham', 'ham, cheese')
+console.log (sandwich)

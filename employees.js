@@ -21,16 +21,14 @@
 
 //CODE HERE
 class Employee {
-    constructor(name, shifts){
-        this.name = name
-        this.shifts = shifts
-    }
-    getSchedule(){
-        console.log(`${this.name} works on ${this.shifts}`)
-    }
-
+  constructor({ name, shifts }) {
+    this.name = name;
+    this.shifts = shifts;
+  }
+  getSchedule() {
+    console.log(`${this.name} works on ${this.shifts}`);
+  }
 }
-
 
 /*
     Create a new instance of your class.
@@ -43,11 +41,10 @@ class Employee {
 */
 
 //CODE HERE
-let empOne 
- let name = this.name('jess')
- let shifts = this.shifts('weekday mornings, weekday afternoons')
-
-console.log(`${this.name} works on ${this.shifts}`)
+let empOne = new Employee({
+  name: "jess",
+  shifts: ["weekday mornings", "weekday afternoons"],
+});
 
 /*
     Call the `getSchedule` method on the
@@ -55,8 +52,7 @@ console.log(`${this.name} works on ${this.shifts}`)
 */
 
 //CODE HERE
-
-
+empOne.getSchedule();
 
 /*
     Make a copy of the empOne object
@@ -71,8 +67,9 @@ console.log(`${this.name} works on ${this.shifts}`)
 */
 
 //CODE HERE
+let empTwo = new Employee({ ...empOne, name: "nick" });
 
-
+empTwo.getSchedule();
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -98,8 +95,18 @@ console.log(`${this.name} works on ${this.shifts}`)
 */
 
 //CODE HERE
-
-
+class Manager extends Employee {
+  constructor(name, shifts, employees) {
+    super(name, shifts);
+    this.employees = employees;
+    this.getEmployees = function getEmployees() {
+      console.log(name + " manages: " + this.employees);
+    };
+    this.addEmployee = function addEmployee(emp) {
+      this.employees += emp;
+    };
+  }
+}
 
 /*
     Create a new instance of your class.
@@ -113,7 +120,10 @@ console.log(`${this.name} works on ${this.shifts}`)
 */
 
 //CODE HERE
-
+let manager = new Manager("Winston", "weekdays mornings, weekday afternoons", [
+  "Cece",
+  " Schmidt",
+]);
 
 /*
     Call the `getEmployees` method on the
@@ -121,6 +131,8 @@ console.log(`${this.name} works on ${this.shifts}`)
 */
 
 //CODE HERE
+manager.getEmployees(manager);
+
 
 /*
     Call the `addEmployee` method on the 
@@ -128,7 +140,8 @@ console.log(`${this.name} works on ${this.shifts}`)
     'Coach' or whatever name you'd like.
 */
 
-//CODE HERE 
+//CODE HERE
+manager.addEmployee('Couch')
 
 /*
     Call the `getEmployees` method on the
@@ -137,3 +150,4 @@ console.log(`${this.name} works on ${this.shifts}`)
 */
 
 //CODE HERE
+console.log('Winston  manages' + manager.employees)

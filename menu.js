@@ -34,7 +34,7 @@
 const pizza = {
 'name': 'cheese',
 'price': 5.99,
-'catagory': 'entree',
+'category': 'entree',
 'popularity': 4.5,
 'rating': 5,
 'tags': ['cheese', 'kids', 'medium']
@@ -51,6 +51,7 @@ console.log(pizza)
 */
 
 //CODE HERE
+console.log ('popularity: ')
 console.log(pizza.popularity)
 
 /*
@@ -61,7 +62,8 @@ console.log(pizza.popularity)
 */
 
 //CODE HERE
-console.log(pizza.tags)
+console.log ('tag: ')
+console.log(pizza.tags[0])
 
 /*
     Third, destructure the price off of the
@@ -71,8 +73,12 @@ console.log(pizza.tags)
 */
 
 //CODE HERE
-let {name, catagory, popularity, rating, tags} = pizza
-console.log()
+// let {name, catagory, popularity, rating, tags} = pizza
+
+
+delete pizza.price;
+
+console.log (pizza)
 /*
     Fourth, and last, destructure the category
     property.
@@ -82,6 +88,9 @@ console.log()
 
 //CODE HERE
 
+delete pizza.category;
+
+console.log (pizza)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -97,7 +106,45 @@ console.log()
 
 //CODE HERE
 
+const fish = {
+    
+    name: 'fish',
+    price: 7,
+    category: 'entree',
+    popularity:100,
+    rating: 8,
+    tags: ['gluten-free', 'fresh', 'diet']
+}
+const cake = {
+    
+    name: 'cake',
+    price: 2,
+    category: 'dessert',
+    popularity: 100,
+    rating: 5,
+    tags: ['gluten-free', 'kids', 'dessert']
+}
+const drink = {
+    
+    name: 'drink',
+    price: 5,
+    category: 'drink',
+    popularity: 70,
+    rating: 4,
+    tags: ['drink', 'kids', 'soda']
+}
+const breadSticks = {
+    
+    name: 'breadSticks',
+    price: 5,
+    category: 'Appitizer',
+    popularity: 40,
+    rating: 3,
+    tags: ['gluten-free', 'kids', 'diet']
+}
 
+
+let foodArr = [pizza, fish, cake, drink, breadSticks];
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -113,8 +160,10 @@ console.log()
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
-
+const filteredFood = foodArr.filter(function(tags){
+    return foodArr.tags
+})
+console.log(filteredFood)
 
 
 //////////////////PROBLEM 5////////////////////
